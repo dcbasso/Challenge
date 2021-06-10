@@ -1,7 +1,10 @@
 package com.rezolve.challenge.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +18,8 @@ import java.util.List;
 @Data
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Geofence implements Serializable {
 
     @Id
@@ -29,6 +34,7 @@ public class Geofence implements Serializable {
 
     private Integer radius;
 
+    @JsonBackReference
     @ManyToMany(mappedBy = "geofenceList")
     private List<Advertising> advertisingList;
 
