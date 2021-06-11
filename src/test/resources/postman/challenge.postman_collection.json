@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "dd96e38a-3d3a-47c7-9b79-cf03e0225fbe",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Geofence",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321,\n    \"radius\" : 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/geofence",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"geofence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Geofence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/geofence",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"geofence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get First Geofence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/geofence/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"geofence",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advertising",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"href\": \"http//www.google.com.br\",\n    \"geofenceList\": [\n        {\n            \"id\": 1,\n            \"latitude\": 10.7654321,\n            \"longitude\": 20.7654321,\n            \"radius\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/advertising",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"advertising"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Advertising",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/advertising",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"advertising"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Advertising (INVALID)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"href\": \"http://thiswillneverexists1239071.com.br\",\n    \"geofenceList\": [\n        {\n            \"id\": 1,\n            \"latitude\": 10.7654321,\n            \"longitude\": 20.7654321,\n            \"radius\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/advertising",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"advertising"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Geofence (INVALID)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/geofence",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"geofence"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
