@@ -1,7 +1,9 @@
 package com.rezolve.challenge.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +19,8 @@ import java.util.List;
 @Data
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Advertising implements Serializable {
 
     @Id
@@ -24,7 +28,7 @@ public class Advertising implements Serializable {
     private Integer id;
 
     @Column(length = 2048)
-    private String url;
+    private String href;
 
     @ManyToMany
     @JoinTable(name = "advertising_geofence", joinColumns = @JoinColumn(name = "geofenceid"), inverseJoinColumns = @JoinColumn(name = "advertisingid"))
