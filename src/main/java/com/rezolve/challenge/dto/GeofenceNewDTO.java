@@ -1,5 +1,6 @@
 package com.rezolve.challenge.dto;
 
+import com.rezolve.challenge.services.validation.GeofenceNewDtoInsert;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@GeofenceNewDtoInsert
 public class GeofenceNewDTO implements Serializable {
 
     private Double latitude;
