@@ -3,6 +3,7 @@ package com.rezolve.challenge.services;
 import com.rezolve.challenge.model.Geofence;
 import com.rezolve.challenge.respository.GeofenceRepository;
 import com.rezolve.challenge.services.exceptions.ObjectNotFoundException;
+import com.rezolve.challenge.services.interfaces.GeofenceService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -20,13 +21,13 @@ import static org.mockito.Mockito.times;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeofenceServiceImplUnitTest {
+public class GeofenceServiceUnitTest {
 
     @MockBean
     private GeofenceRepository geofenceRepository;
 
     @Autowired
-    private GeofenceServiceImpl geofenceService;
+    private GeofenceService geofenceService;
 
     @Test
     public void findGeogenceByIdShouldReturnSuccess() {
