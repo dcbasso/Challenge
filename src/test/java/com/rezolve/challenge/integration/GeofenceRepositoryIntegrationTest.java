@@ -26,7 +26,7 @@ public class GeofenceRepositoryIntegrationTest {
         final Geofence geofence = Geofence.builder()
                 .latitude(10.80)
                 .longitude(11.08)
-                .radius(2)
+                .radius(2.00)
                 .build();
 
         geofenceRepository.save(geofence);
