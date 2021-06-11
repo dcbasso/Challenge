@@ -24,7 +24,7 @@ public class AdvertisingRepositoryIntegrationTest {
     @Test
     public void saveOneAdvertising_thenFindOneWithFindAll() {
         final Advertising advertising = Advertising.builder()
-                .url("http://example.com")
+                .href("http://example.com")
                 .build();
 
         advertisingRepository.save(advertising);
