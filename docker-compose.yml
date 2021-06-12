@@ -1,0 +1,31 @@
+version: '3'
+services:
+  postgres-test:
+    image: postgres
+    container_name: postgres-test
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=challenge
+    ports:
+      - "5431:5432"
+
+  postgres-hom:
+    image: postgres
+    container_name: postgres-hom
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=challenge
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-hom
