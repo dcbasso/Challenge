@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321,\n    \"radius\" : 1\n}",
+					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321,\n    \"radius\" : 1000.00\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -73,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"href\": \"http//www.google.com.br\",\n    \"geofenceList\": [\n        {\n            \"id\": 1,\n            \"latitude\": 10.7654321,\n            \"longitude\": 20.7654321,\n            \"radius\": 1\n        }\n    ]\n}",
+					"raw": "{\n    \"href\": \"http://www.google.com.br\",\n    \"geofenceList\": [\n        {\n            \"id\": 1\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -104,6 +104,84 @@
 					],
 					"path": [
 						"advertising"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrace - Same Location (AD)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/entrance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"entrance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrace - Near Location (AD)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 10.7854331,\n    \"longitude\" : 20.8654323\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/entrance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"entrance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entrace - Far |Away Location (NO AD)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 15.7854331,\n    \"longitude\" : 21.8654323\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/entrance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"entrance"
 					]
 				}
 			},
