@@ -22,7 +22,7 @@ public class GeofenceDTO implements Serializable {
 
     private Double longitude;
 
-    private Integer radius;
+    private Double radius;
 
     public GeofenceDTO(final Geofence geofence) {
         this.id = geofence.getId();

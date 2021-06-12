@@ -32,7 +32,8 @@ public class Geofence implements Serializable {
     @Column(precision=2, scale=7)
     private Double longitude;
 
-    private Integer radius;
+    @Column(precision=7, scale=2)
+    private Double radius;
 
     @JsonBackReference
     @ManyToMany(mappedBy = "geofenceList")

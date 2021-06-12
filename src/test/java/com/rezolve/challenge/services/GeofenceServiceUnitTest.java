@@ -34,7 +34,7 @@ public class GeofenceServiceUnitTest {
         final Integer id = 1;
         final Geofence geofence = Geofence.builder()
                 .id(id)
-                .radius(2)
+                .radius(2.00)
                 .latitude(7.1234567)
                 .longitude(1.7654321)
                 .build();
@@ -55,7 +55,7 @@ public class GeofenceServiceUnitTest {
         final Integer id = 1;
         final Geofence geofence = Geofence.builder()
                 .id(id)
-                .radius(2)
+                .radius(2.00)
                 .latitude(7.1234567)
                 .longitude(1.7654321)
                 .build();
@@ -68,7 +68,7 @@ public class GeofenceServiceUnitTest {
         final Integer id = 1;
         final Geofence geofence = Geofence.builder()
                 .id(id)
-                .radius(2)
+                .radius(2.00)
                 .latitude(7.1234567)
                 .longitude(1.7654321)
                 .build();
