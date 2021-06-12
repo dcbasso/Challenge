@@ -34,7 +34,9 @@ public class AdvertisingNewDTOValidationInsert implements ConstraintValidator<Ad
     private Boolean isHrefWithValidUrlFormat(final AdvertisingNewDTO advertisingNewDTO) {
         log.info("Checking URL {} format.", advertisingNewDTO.getHref());
         final UrlValidator urlValidator = new UrlValidator();
-        return urlValidator.isValid(advertisingNewDTO.getHref());
+        final boolean urlValid = urlValidator.isValid(advertisingNewDTO.getHref());
+        log.info("URL {} format is {}", advertisingNewDTO.getHref(), urlValid ? "VALID" : "INVALID");
+        return urlValid;
     }
 
     /**
