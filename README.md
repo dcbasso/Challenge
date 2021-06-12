@@ -13,6 +13,13 @@
 - docker-compose build
 - docker-compose up
 
+### Testing API's
+
+- Postman:
+  - Import files in Postman:
+    - Collection of tests: /test/resource/postman/challenge.postman_collection.json
+    - Enviroment: /test/resource/postman/challenge.postman_environment.json
+
 ### Developers
 
 - Dante Cesar Basso Filho <dcbasso@gmail.com>
