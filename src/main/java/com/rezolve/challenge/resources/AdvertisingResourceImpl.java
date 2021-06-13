@@ -5,9 +5,11 @@ import com.rezolve.challenge.dto.AdvertisingNewDTO;
 import com.rezolve.challenge.dto.InsertedDTO;
 import com.rezolve.challenge.model.Advertising;
 import com.rezolve.challenge.resources.interfaces.AdvertisingResource;
+import com.rezolve.challenge.services.exceptions.ValidationException;
 import com.rezolve.challenge.services.interfaces.AdvertisingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +47,10 @@ public class AdvertisingResourceImpl implements AdvertisingResource {
 
     @RequestMapping(method = RequestMethod.POST)
     @Override
-    public ResponseEntity<InsertedDTO> create(@RequestBody @Valid final AdvertisingNewDTO advertisingNewDTO) {
+    public ResponseEntity<InsertedDTO> create(@RequestBody @Valid final AdvertisingNewDTO advertisingNewDTO, final Errors errors) {
+        if (errors.getErrorCount() > 0) {
+            throw  new ValidationException("Invalid Advertising data or missing information");
+        }
         final Advertising advertising = this.advertisingService.create(this.advertisingService.fromAdvertisingNewDTO(advertisingNewDTO));
         final URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(advertising.getId()).toUri();
         return ResponseEntity.created(uri).body(new InsertedDTO(advertising.getId()));
