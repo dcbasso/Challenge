@@ -5,9 +5,11 @@ import com.rezolve.challenge.dto.GeofenceNewDTO;
 import com.rezolve.challenge.dto.InsertedDTO;
 import com.rezolve.challenge.model.Geofence;
 import com.rezolve.challenge.resources.interfaces.GeofenceResource;
+import com.rezolve.challenge.services.exceptions.ValidationException;
 import com.rezolve.challenge.services.interfaces.GeofenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +38,10 @@ public class GeofenceResourceImpl implements GeofenceResource {
 
     @RequestMapping(method = RequestMethod.POST)
     @Override
-    public ResponseEntity<InsertedDTO> createGeofence(@RequestBody @Valid final GeofenceNewDTO geofenceNewDTO) {
+    public ResponseEntity<InsertedDTO> createGeofence(@RequestBody @Valid final GeofenceNewDTO geofenceNewDTO, final Errors errors) {
+        if (errors.getErrorCount() > 0) {
+            throw  new ValidationException("Invalid Geofence data or missing information");
+        }
         final Geofence newGeofence = this.geofenceService.create(this.geofenceService.fromGeofenceNewDTO(geofenceNewDTO));
         final URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newGeofence.getId()).toUri();
         return ResponseEntity.created(uri).body(new InsertedDTO(newGeofence.getId()));
@@ -46,7 +51,7 @@ public class GeofenceResourceImpl implements GeofenceResource {
     @Override
     public ResponseEntity<List<GeofenceDTO>> findAll() {
         final List<Geofence> geofenceList = this.geofenceService.findAll();
-        final List<GeofenceDTO> geofenceDTOList = geofenceList.stream().map(geofence -> new GeofenceDTO(geofence)).collect(Collectors.toList());
+        final List<GeofenceDTO> geofenceDTOList = geofenceList.stream().map(GeofenceDTO::new).collect(Collectors.toList());
         return ResponseEntity.ok().body(geofenceDTOList);
     }
 

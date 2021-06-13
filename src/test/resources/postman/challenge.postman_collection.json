@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Create Geofence",
+			"name": "Geofence - Create",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -32,7 +32,7 @@
 			"response": []
 		},
 		{
-			"name": "List All Geofence",
+			"name": "Geofence - List All",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -49,7 +49,7 @@
 			"response": []
 		},
 		{
-			"name": "Get First Geofence",
+			"name": "Geofence - Get First Inserted",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -67,7 +67,7 @@
 			"response": []
 		},
 		{
-			"name": "Create Advertising",
+			"name": "Advertising - Create",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -93,7 +93,7 @@
 			"response": []
 		},
 		{
-			"name": "List All Advertising",
+			"name": "Advertising - List All",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -188,7 +188,33 @@
 			"response": []
 		},
 		{
-			"name": "Create Advertising (INVALID)",
+			"name": "Geofence - Create (INVALID)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/geofence",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"geofence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Advertising - Create (INVALID)",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -214,13 +240,13 @@
 			"response": []
 		},
 		{
-			"name": "Create Geofence (INVALID)",
+			"name": "Entrace - Invalid Data",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"latitude\" : 10.7654321,\n    \"longitude\" : 20.7654321\n}",
+					"raw": "{\n    \"latitude\" : 10.7854331\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -228,12 +254,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/geofence",
+					"raw": "{{url}}/entrance",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"geofence"
+						"entrance"
 					]
 				}
 			},

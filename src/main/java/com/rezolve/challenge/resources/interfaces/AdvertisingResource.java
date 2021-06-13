@@ -4,6 +4,7 @@ import com.rezolve.challenge.dto.AdvertisingDTO;
 import com.rezolve.challenge.dto.AdvertisingNewDTO;
 import com.rezolve.challenge.dto.InsertedDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface AdvertisingResource {
 
     public ResponseEntity<List<AdvertisingDTO>> findAll();
 
-    public ResponseEntity<InsertedDTO> create(final AdvertisingNewDTO advertisingNewDTO);
+    public ResponseEntity<InsertedDTO> create(final AdvertisingNewDTO advertisingNewDTO, final Errors errors);
 
     public ResponseEntity<Void> update(final AdvertisingNewDTO advertisingNewDTO, final Integer id);
 

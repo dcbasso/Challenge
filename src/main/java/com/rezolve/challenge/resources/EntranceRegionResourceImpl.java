@@ -4,9 +4,11 @@ import com.rezolve.challenge.dto.AdvertisingDTO;
 import com.rezolve.challenge.dto.EntranceRegionDTO;
 import com.rezolve.challenge.model.Advertising;
 import com.rezolve.challenge.resources.interfaces.EntranceRegionResource;
+import com.rezolve.challenge.services.exceptions.ValidationException;
 import com.rezolve.challenge.services.interfaces.EntranceRegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +27,10 @@ public class EntranceRegionResourceImpl implements EntranceRegionResource {
 
     @RequestMapping(method = RequestMethod.POST)
     @Override
-    public ResponseEntity<List<AdvertisingDTO>> entranceRegion(@RequestBody @Valid final EntranceRegionDTO entranceRegionDTO) {
+    public ResponseEntity<List<AdvertisingDTO>> entranceRegion(@RequestBody @Valid final EntranceRegionDTO entranceRegionDTO, final Errors errors) {
+        if (errors.getErrorCount() > 0) {
+            throw  new ValidationException("Invalid Entrance data or missing information");
+        }
         final List<Advertising> advertisingList = entranceRegionService.advertisingExists(entranceRegionDTO);
         final List<AdvertisingDTO> advertisingDTOList = advertisingList.stream().map(AdvertisingDTO::new).collect(Collectors.toList());
         return ResponseEntity.ok().body(advertisingDTOList);

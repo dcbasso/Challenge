@@ -1,7 +1,7 @@
 package com.rezolve.challenge.services.interfaces;
 
-import com.rezolve.challenge.model.Geofence;
 import com.rezolve.challenge.dto.GeofenceNewDTO;
+import com.rezolve.challenge.model.Geofence;
 
 import java.util.List;
 
