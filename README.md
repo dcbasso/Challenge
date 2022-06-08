@@ -1,4 +1,4 @@
-## Rezolve Instant Sales - Dante's Challenge
+## Job Opportunity Challenge - Dante's Challenge
 
 ### Requirements:
 - Docker
